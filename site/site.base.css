@@ -1,0 +1,49 @@
+/* site.css */
+.site-account{
+  background-image:url('images/default.bank.logo.png');
+}
+.site-account-bni{
+  background-image:url('images/default.bank.logo.bni.png');
+}
+.site-account-mandiri{
+  background-image:url('images/default.bank.logo.mandiri.png');
+}
+.site-social-github{
+  background-image:url("images/github.png");
+}
+.site-social-facebook{
+  background-image:url("images/facebook.png");
+}
+.site-social-twitter{
+  background-image:url("images/twitter.png");
+}
+.site-social-youtube{
+  background-image:url("images/youtube.png");
+}
+.site-social-whatsapp{
+  background-image:url("images/whatsapp.png");
+}
+.site-social-linkedin{
+  background-image:url("images/linkedin.png");
+}
+.site-social-telegram{
+  background-image:url("images/telegram.png");
+}
+.site-social-instagram{
+  background-image:url("images/instagram.png");
+}
+.site-social-pinterest{
+  background-image:url("images/pinterest.png");
+}
+.site-social-tumblr{
+  background-image:url("images/tumblr.png");
+}
+.site-social-playstore{
+  background-image:url("images/playstore.png");
+}
+.site-social-mail{
+  background-image:url("images/mail.png");
+}
+.site-social-default{
+  background-image:url("images/mail.png");
+}
