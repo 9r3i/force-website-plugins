@@ -1,0 +1,45 @@
+{
+    "store": {
+        "phone": "+6282115657783",
+        "email": "warsun.kodau@gmail.com",
+        "address": "Jl. Raya Kodau No.46, RT.001\/RW.023, Jatimekar, Kec. Jatiasih, Kota Bks, Jawa Barat 17421",
+        "map": "https:\/\/maps.google.com\/maps?width=420&amp;height=320&amp;hl=en&amp;q=Warsun+Kuningan+Kodau&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed",
+        "mapEmbed": "https:\/\/www.google.com\/maps\/embed\/v1\/place?q=warsun+kuningan+kodau&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+    },
+    "social": {
+        "whatsapp": "https:\/\/wa.me\/6282115657783"
+    },
+    "navigation": {
+        "?home": "Home",
+        "?contact": "Contact"
+    },
+    "word": {
+        "login": "Login",
+        "signup": "Sign-up",
+        "orderButton": "Order Now",
+        "orderTitle": "Order Now",
+        "enterName": "Enter Your Name",
+        "enterPhone": "Enter Your Phone Number",
+        "enterEmail": "Enter Your Email Address",
+        "enterAddress": "Enter Your Address",
+        "enterMessage": "Enter Your Message",
+        "send": "Send",
+        "getinTouch": "Get in touch",
+        "howtoFindUs": "How to find us",
+        "address": "Address",
+        "object": {
+            "one": "satu",
+            "two": "dua",
+            "three": "tiga",
+            "four": "empat"
+        },
+        "yes": "Yes",
+        "no": "No"
+    },
+    "testimonial": {
+        "name": "Abu Ayyub Al Anshary",
+        "occupation": "CEO & Founder Al Anshary Software",
+        "message": "Saya orang Sunda, makan di sini serasa makan di rumah. Makanan has Sunda sesuai dengan lidah saya, pastinya bikin ketagihan.",
+        "picture": "https:\/\/avatars.githubusercontent.com\/u\/3212290?v=4"
+    }
+}
