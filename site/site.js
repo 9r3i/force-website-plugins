@@ -181,8 +181,14 @@ this.init=function(plug){
       //*/
     }
     /* fanpage */
-    if(!sfp&&siteData.hasOwnProperty('fanpage')){
-      var fpiframe='<iframe src="//www.facebook.com/plugins/likebox.php?href='+siteData.fanpage+'&width=183&height=285&colorscheme=light&show_faces=true&border_color=%23FFF&stream=false&header=false" style="border:0;background-color:#FFF;overflow:hidden;width:100%;height:auto;"></iframe>';
+    if(!sfp&&(
+      siteData.hasOwnProperty('fanpage')||
+      (siteData.hasOwnProperty('info')
+        &&siteData.info.hasOwnProperty('fanpage'))
+      )){
+      var fanpageURL=siteData.hasOwnProperty('fanpage')
+        ?siteData.fanpage:siteData.info.fanpage
+      fpiframe='<iframe src="//www.facebook.com/plugins/likebox.php?href='+fanpageURL+'&width=183&height=285&colorscheme=light&show_faces=true&border_color=%23FFF&stream=false&header=false" style="border:0;background-color:#FFF;overflow:hidden;width:100%;height:auto;"></iframe>';
       sfp=ForceWebsite.buildElement('div',null,{
         'class':'site-fanpage',
       },[
