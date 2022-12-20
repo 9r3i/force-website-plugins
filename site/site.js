@@ -25,6 +25,13 @@ this.init=function(plug){
         'class':'site-address',
       });
       saddr.appendTo(fc);
+    }else if(!saddr&&siteData.hasOwnProperty('info')
+      &&&&siteData.info.hasOwnProperty('address')){
+      saddr=ForceWebsite.buildElement('div',
+        siteData.info.address,{
+        'class':'site-address',
+      });
+      saddr.appendTo(fc);
     }
     /* social */
     if(!slinks&&siteData.hasOwnProperty('social')
@@ -149,6 +156,26 @@ this.init=function(plug){
       /**/
       var ptrn=/(bni|mandiri)/i,
       bm=siteData.bankAccount.match(ptrn),
+      bname=bm?'site-account-'+bm[1].toLowerCase():'';
+      sbacc.classList.add(bname);
+      //*/
+    }else if(!sbacc&&siteData.hasOwnProperty('info')
+      &&siteData.info.hasOwnProperty('bankAccount')){
+      sbacc=ForceWebsite.buildElement('div',null,{
+        'class':'site-account',
+      },[
+        ForceWebsite.buildElement('div','Bank Account',{
+            'class':'site-account-title',
+          }),
+        ForceWebsite.buildElement('div',
+          siteData.info.bankAccount,{
+            'class':'site-account-text',
+          }),
+      ]);
+      fc.insertBefore(sbacc,fc.firstChild);
+      /**/
+      var ptrn=/(bni|mandiri)/i,
+      bm=siteData.info.bankAccount.match(ptrn),
       bname=bm?'site-account-'+bm[1].toLowerCase():'';
       sbacc.classList.add(bname);
       //*/
