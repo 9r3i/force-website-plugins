@@ -26,7 +26,7 @@ this.init=function(plug){
       });
       saddr.appendTo(fc);
     }else if(!saddr&&siteData.hasOwnProperty('info')
-      &&&&siteData.info.hasOwnProperty('address')){
+      &&siteData.info.hasOwnProperty('address')){
       saddr=ForceWebsite.buildElement('div',
         siteData.info.address,{
         'class':'site-address',
