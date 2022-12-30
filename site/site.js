@@ -6,8 +6,8 @@
  */
 ;function site(param){
 this.init=function(plug){
-  var root=plug.hosts.hasOwnProperty('slider')
-    ?plug.hosts.slider:plug.root;
+  var root=plug.hosts.hasOwnProperty('site')
+    ?plug.hosts.site:plug.root;
   plug.Force.loadStyleFile(root+'/site/site.base.css');
   var fc=document.querySelector('.foot-content'),
   sbacc=document.querySelector('.site-account'),

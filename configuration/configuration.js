@@ -4,7 +4,7 @@
  * ~ and help website app manage config.site.data
  */
 function configuration(){
-this.version='1.0.0';
+this.version='1.0.1';
 this.Force=null;
 /* kitchen */
 this.kitchen=function(plug){
@@ -61,7 +61,8 @@ this.kitchen=function(plug){
       p.disabled=true;
       if(p.name){
         if(!formdata.hasOwnProperty(p.dataset.key)){
-          formdata[p.dataset.key]={};
+          formdata[p.dataset.key]=
+            p.dataset.type=='array'?[]:{};
         }
         var pval=p.value;
         if(p.value.match(/^\d+(\.\d+)?$/)){
@@ -71,7 +72,11 @@ this.kitchen=function(plug){
         }else if(p.value=='false'){
           pval=false;
         }
-        formdata[p.dataset.key][p.dataset.name]=_this.parse(pval);
+        if(p.dataset.type=='array'){
+          formdata[p.dataset.key].push(_this.parse(pval));
+        }else{
+          formdata[p.dataset.key][p.dataset.name]=_this.parse(pval);
+        }
       }
     }
     _this.data=formdata;
@@ -101,18 +106,21 @@ this.kitchen=function(plug){
     nrow.appendTo(ndp);
     for(var o in r){
       var p=r[o],
+      pt=Array.isArray(p)?'array':'object',
       d=_this.table();
       d.addRowSingle(o);
       for(var i in p){
         var purse=_this.purse(p[i]),
-        itag=p[i]===purse?'input':'textarea',
+        hnline=_this.hasNewLine(p[i]),
+        itag=p[i]===purse&&!hnline?'input':'textarea',
         irow=ForceWebsite.buildElement(itag,null,{
           'class':'kitchen-input-title',
           'name':i+'['+o+']',
           'data-key':o,
+          'data-type':pt,
           'data-name':i,
           'value':''+purse,
-        },null,null,p[i]!==purse?purse:null);
+        },null,null,itag=='textarea'?purse:null);
         d.addRowElement(i,irow);
       }
       var nrow=ForceWebsite.buildElement('div',null,{
@@ -192,6 +200,10 @@ this.kitchenConfig=async function(plug){
   ForceWebsite.fetch('config.get',function(r){
     ncontent.value=r;
   });
+};
+/* has new line */
+this.hasNewLine=function(v){
+  return typeof v==='string'&&v.match(/\n/)?true:false;
 };
 /* purse */
 this.purse=function(v){
