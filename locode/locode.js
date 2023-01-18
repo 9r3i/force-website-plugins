@@ -5,7 +5,7 @@
  * @requires ForceWebsite
  */
 ;function locode(param){
-this.version='2.0.1';
+this.version='2.0.2';
 this.pattern=/@\[locode(:(ldb|php|js|html))?\[([^~]+(~?[^~]+)*?)~\]\]\n?/g;
 this.init=function(plug){
   var _locode=this;
@@ -73,12 +73,7 @@ this.locodeJS=function(str){
         return '<span class="locode-variable">'+m+'</span>';
       });
     }else if(m.match(new RegExp(pf,'ig'))){
-      var k=['object','array','bool','integer','int','mixed','string',
-        'void','continue','function','class','final','static',
-        'public','private','protected','const','exit','for','as',
-        'while','do','echo','goto','if','else','or','and','xor',
-        'return','true','false','null','try','catch','finally',
-        'throw','var','new','console','this','typeof','in','let'
+      var k=['async','await','break','case','catch','class','const','continue','debugger','default','delete','do','else','enum','export','extends','false','finally','for','function','if','implements','import','in','instanceof','interface','let','new','null','package','private','protected','public','return','super','switch','static','this','throw','try','true','typeof','var','void','while','with','yield',
       ],
       f=["close","stop","focus","blur","open","alert","confirm",
         "prompt","print","postMessage","captureEvents",
