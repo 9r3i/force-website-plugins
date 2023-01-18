@@ -48,4 +48,9 @@ if the plugin is in the same host of the force-website and also without paramete
 # Closing
 That's all there is to it. Alhamdulillaah...
 
+### Visitors
+[![9r3i/force-website-plugins Visitors](https://9r3i.web.id/api/views/?user=9r3i-force-website-plugins&color=51,119,187)](https://github.com/9r3i/force-website-plugins)
+|---|
+| Since January 18th 2023 |
+
 
