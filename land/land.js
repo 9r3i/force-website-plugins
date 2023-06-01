@@ -6,8 +6,9 @@
  */
 ;function land(param){
 this.Force=null;
+this.bulks=document.getElementsByClassName('bulk-each');
+this.body=document.getElementById('body');
 const _land=this;
-ForceWebsite.body=ForceWebsite.body||document.getElementById('body');
 this.init=function(plug){
   this.Force=plug.Force;
   const key=localStorage.getItem('land-key');
@@ -37,10 +38,10 @@ this.init=function(plug){
     row=ForceWebsite.buildElement('div',null,{
       'class':'land-row',
     },[but]),
-    bulk=ForceWebsite.body.firstChild,
+    bulk=_land.bulks[0].parentNode,
     pid=Math.floor(bulk.children.length*Math.random()),
     href=bulk.children[pid].firstChild.firstChild.href;
-    ForceWebsite.body.insertBefore(row,bulk);
+    bulk.parentNode.insertBefore(row,bulk);
     but.onclick=function(e){
       localStorage.setItem('land-key',this.dataset.key);
       ForceWebsite.go(href);
@@ -64,26 +65,26 @@ this.init=function(plug){
     rowa=ForceWebsite.buildElement('div',null,{
       'class':'land-row',
     },[buta]);
-    bulk=ForceWebsite.body.firstChild;
-    ForceWebsite.body.insertBefore(row,bulk);
+    bulk=_land.body,
+    bulk.insertBefore(row,bulk.firstChild);
     this.countdown(but,function(e){
-      ForceWebsite.body.removeChild(row);
-      rowa.appendTo(ForceWebsite.body);
-      ForceWebsite.main.scrollTo({
-         top:bulk.offsetHeight,
+      bulk.removeChild(row);
+      rowa.appendTo(bulk);
+      bulk.scrollTo({
+         top:bulk.children[0].offsetHeight,
          left:0,
          behavior:'smooth'
       });
       _land.countdown(buta,function(e){
         window.open('?land-key='+this.dataset.key,'_blank');
-        ForceWebsite.body.removeChild(rowa);
+        bulk.removeChild(rowa);
       },'s Generating...','Download');
     },'s Preparing...','Generate');
     return;
   }
 };
 this.countdown=function(el,cb,ing,text){
-  const i=parseInt(el.dataset.time,10);
+  let i=parseInt(el.dataset.time,10);
   if(i<=0){
     el.innerText=text;
     el.onclick=cb;
@@ -138,7 +139,7 @@ this.kitchen=function(plug){
       content:ncontent.value,
     });
   };
-  ndp.appendTo(ForceWebsite.body);
+  ndp.appendTo(_land.body);
   ForceWebsite.request('land.iniGet',function(r){
     ncontent.value=r;
   });
