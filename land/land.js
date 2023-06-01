@@ -139,7 +139,7 @@ this.kitchen=function(plug){
       content:ncontent.value,
     });
   };
-  ndp.appendTo(_land.body);
+  ndp.appendTo(ForceWebsite.body);
   ForceWebsite.request('land.iniGet',function(r){
     ncontent.value=r;
   });
