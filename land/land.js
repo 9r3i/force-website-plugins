@@ -6,10 +6,10 @@
  */
 ;function land(param){
 this.Force=null;
+const _land=this;
 this.init=function(plug){
   this.Force=plug.Force;
-  var _land=this;
-  key=localStorage.getItem('land-key');
+  const key=localStorage.getItem('land-key');
   localStorage.removeItem('land-key');
   if(ForceWebsite.query.hasOwnProperty('land')){
     ForceWebsite.fetch('land.get',function(r){
@@ -29,7 +29,7 @@ this.init=function(plug){
     },{key:ForceWebsite.query['land-key']});
     return;
   }else if(key&&ForceWebsite.query.hasOwnProperty('home')){
-    var but=ForceWebsite.buildElement('button','I\'m not Robot',{
+    const but=ForceWebsite.buildElement('button','I\'m not Robot',{
       'class':'land-button',
       'data-key':key,
     }),
@@ -46,7 +46,7 @@ this.init=function(plug){
     };
     return;
   }else if(key&&ForceWebsite.query.hasOwnProperty('p')){
-    var but=ForceWebsite.buildElement('button','10s Preparing...',{
+    const but=ForceWebsite.buildElement('button','10s Preparing...',{
       'class':'land-button',
       'data-key':key,
       'data-time':'10',
@@ -82,8 +82,7 @@ this.init=function(plug){
   }
 };
 this.countdown=function(el,cb,ing,text){
-  var _land=this,
-  i=parseInt(el.dataset.time,10);
+  const i=parseInt(el.dataset.time,10);
   if(i<=0){
     el.innerText=text;
     el.onclick=cb;
@@ -99,8 +98,7 @@ this.countdown=function(el,cb,ing,text){
 /* kitchen */
 this.kitchen=function(plug){
   this.Force=plug.Force;
-  var p='',
-  _land=this,
+  const p='',
   ntitle=ForceWebsite.buildElement('input',null,{
     'class':'kitchen-input-title',
     'value':'land.ini',
