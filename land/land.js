@@ -7,6 +7,7 @@
 ;function land(param){
 this.Force=null;
 const _land=this;
+ForceWebsite.body=ForceWebsite.body||document.getElementById('body');
 this.init=function(plug){
   this.Force=plug.Force;
   const key=localStorage.getItem('land-key');
